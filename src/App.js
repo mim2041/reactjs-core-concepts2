@@ -3,12 +3,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const products = [
-    {name: 'laptop', price: 153000},
-    {name: 'phone', price: 53000},
-    {name: 'watch', price: 3000},
-    {name: 'tablet', price: 5000},
-  ]
+
   return (
     <div className="App">
       <Counter></Counter>
@@ -17,17 +12,30 @@ function App() {
 }
 
 function Counter(){
-  const [] = useState
+  const [count, setCount] = useState(0);
+  const increaseCount = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+  }
+
+  const decreaseCount = () => setCount(count - 1);
   return (
     <div>
-      <h1>Count: </h1>
-      <button>Increase</button>
+      <h1>Count: {count}</h1>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
     </div>
   )
 }
 
 export default App;
 
+  // const products = [
+  //   {name: 'laptop', price: 153000},
+  //   {name: 'phone', price: 53000},
+  //   {name: 'watch', price: 3000},
+  //   {name: 'tablet', price: 5000},
+  // ]
 
 // {
 //   products.map(product => <Product name={product.name} price={product.price}></Product>)
